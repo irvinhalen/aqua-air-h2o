@@ -44,6 +44,51 @@
   color: #888;
 }
 
+.input-group{
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  margin-top: 5%;
+  margin-bottom: 1%;
+}
+
+.input-group label{
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 7rem;
+  transform: translateY(-50%);
+  color: gray;
+  padding: 0px 5px;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.input-group input{
+  width: 50rem;
+  height: 3rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1.2px solid black;
+  border-radius: 5px;
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label{
+  top: 0;
+  font-size: 15px;
+  background-color: #f2f4f7;
+  color: black;
+  width: 5rem;
+}
+
 .topbutton{
   color: white;
   bottom: 50px;
@@ -194,11 +239,6 @@ nav ul{
   font-size: 1rem!important;
 }
 
-.navButton{
-  display: flex;
-  justify-content: center;
-}
-
 .hover-underline-animation {
   display: inline-block;
   position: relative;
@@ -270,9 +310,10 @@ nav ul{
 .main-content{
   background: linear-gradient(to bottom,rgb(50, 100, 250), rgb(50, 200, 250));
   max-height: 100vh;
+  overflow: hidden;
 }
 
-.content-in-vid h1{
+.content-in-bg h1{
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 6.2rem;
@@ -281,7 +322,7 @@ nav ul{
   margin-bottom: 3%;
 }
 
-.content-in-vid p{
+.content-in-bg p{
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1.25rem;
@@ -310,6 +351,7 @@ button.main-btn {
   transition: background-position 0.5s, background-size 0.5s, box-shadow 0.5s, border-width 0.2s;
   color: white;
   box-shadow: 0;
+  height: 3.5rem;
   width: 9rem;
 }
 
@@ -325,6 +367,19 @@ button.main-btn:hover {
 
 button.main-btn:active{
   border-width: 5px;
+}
+
+.content-in-bg button.snd-btn{
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  background-color: black;
+  border: 0 solid rgb(255, 255, 255, 0.5);
+  transition: background-color 0.5s, box-shadow 0.5s, border-width 0.2s;
+  box-shadow: 0;
+  color: white;
+  height: 5rem;
+  width: 15rem;
 }
 
 button.snd-btn{
@@ -515,6 +570,26 @@ button.trd-btn:active{
 }
 
 /* End of OHcrud */
+
+/* Start of WIP */
+
+.construction-container{
+  background: linear-gradient(to top,rgb(50, 100, 250), rgb(0, 0, 0));
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.construction-container img{
+  min-height: 100vh;
+  max-width: 100%;
+  filter: opacity(0.5);
+}
+
+.gear-cog{
+  animation: logo-spin infinite 5s linear ;
+}
+
+/* End of WIP */
 
 /* Start of Footer */
 

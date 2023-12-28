@@ -9,6 +9,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import OHcrud from './pages/OHcrud'
+import WIP from './pages/WIP'
 
 function App() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -22,7 +23,7 @@ function App() {
       window.addEventListener('load', () => {
         setLoaded(true);
       });
-    }, 1500);
+    }, 0);
     
     return () => {
       clearTimeout(timeout);
@@ -101,11 +102,12 @@ function App() {
                 <a className={`nav-link ${scrolled? 'hover-underline-animation-scrolled' : 'hover-underline-animation'}`} href="https://www.facebook.com/Irvin.what/" target="blank">Photographs Sold</a>
               </li>
             </ul>
-            <div className="navButton"><button className='main-btn'>LOG IN</button></div>
+            <Link to='/under_construction'><button onClick={scrollToTop} className='main-btn'>LOG IN</button></Link>
           </nav>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/crud' element={<OHcrud />} />
+            <Route path='/under_construction' element={<WIP />} />
           </Routes>
         </Router>
       </header>
