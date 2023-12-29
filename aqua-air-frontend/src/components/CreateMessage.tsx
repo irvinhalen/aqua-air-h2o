@@ -1,13 +1,13 @@
 import Axios from "axios";
 import { useState } from "react";
 
-function AxiosSample() {
+function CreateMessage() {
     const [message, setMessage] = useState("");
 
     const handleSubmit = (event:any) => {
         event.preventDefault();
 
-        Axios.post('http://localhost:3001/api/sendMessage', {
+        Axios.post('http://localhost:3001/api/create-message', {
             message: message
         }).then((response:any) => {
             if(response.status === 200){
@@ -32,4 +32,4 @@ function AxiosSample() {
   )
 }
 
-export default AxiosSample;
+export default CreateMessage;

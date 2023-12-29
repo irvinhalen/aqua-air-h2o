@@ -65,7 +65,7 @@
   color: gray;
   padding: 0px 5px;
   pointer-events: none;
-  transition: 0.2s;
+  transition: all 0.2s;
 }
 
 .input-group input{

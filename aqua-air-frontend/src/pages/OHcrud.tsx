@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import AxiosSample from "../components/AxiosSample";
+import CreateMessage from "../components/CreateMessage";
+import ViewMessages from "../components/ViewMessages";
 // import ScrollRevealElement from "../components/ScrollRevealElement";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPenToSquare, faTag, faTrashCan, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +10,8 @@ function OHcrud() {
     <Fragment>
       <div className="nav-header"></div>
       <div className="additional-content">
-        <AxiosSample />
+        <CreateMessage />
+        <ViewMessages />
       </div>
       <div className="add-on-content">
           <h4>Welcome to CRUD</h4>
