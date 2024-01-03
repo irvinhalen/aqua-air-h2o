@@ -21,7 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/create-message', [PostController::class, 'createMessage']);
-Route::get('read-messages', function(){
+Route::get('/read-messages', function(){
     $posts = Post::all();
     return $posts;
 });
+Route::get('/edit-message/{post}', [PostController::class, function($postId){
+    $post = Post::find($postId);
+    return $post;
+}]);
+Route::get('/update-message/{post}', [PostController::class, 'updateMessage']);
+Route::delete('/delete-message/{post}', [PostController::class, 'deleteMessage']);
