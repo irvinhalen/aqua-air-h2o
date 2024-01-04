@@ -43,7 +43,6 @@ function Home(){
             </div>
             <div className="additional-content">
                 <img className="elbow" src={elbow} alt="Elbow" height="250rem" />
-                <img className="fusilli" src={fusilli} alt="Fusilli" height="250rem" />
                 <ScrollRevealElement>
                     <h4>THERE ARE <span className="bold-txt">{hyphenCount}</span> HYPHENS SATISFIED!</h4>
                 </ScrollRevealElement>
@@ -58,18 +57,19 @@ function Home(){
                 </ScrollRevealElement>
             </div>
             <div className="add-on-content">
-            <ScrollRevealElement>
-                <h4>CONTINUE TO GROW</h4>
-            </ScrollRevealElement>
-            <ScrollRevealElement>
-                <h2>Consider learning new things</h2>
-            </ScrollRevealElement>
-            <ScrollRevealElement>
-                <p>Bacon ipsum dolor amet exercitation beef commodo minim non sunt. Shankle in ad excepteur, spare ribs enim bacon sed elit est chislic pork loin. Rump hamburger incididunt short loin. Bresaola pork chop bacon shankle flank. Chicken jerky ribeye dolore landjaeger ullamco porchetta shank pariatur kielbasa sirloin sausage strip steak jowl boudin. Burgdoggen shank cupidatat ball tip filet mignon voluptate. Veniam eu capicola hamburger quis ham spare ribs nulla elit meatball.</p>
-            </ScrollRevealElement>
-            <ScrollRevealElement>
-                <Link to='/under_construction'><button onClick={scrollToTop} className='snd-btn btn'>CONTACT US</button></Link>
-            </ScrollRevealElement>
+                <img className="fusilli" src={fusilli} alt="Fusilli" height="250rem" />
+                <ScrollRevealElement>
+                    <h4>CONTINUE TO GROW</h4>
+                </ScrollRevealElement>
+                <ScrollRevealElement>
+                    <h2>Consider learning new things</h2>
+                </ScrollRevealElement>
+                <ScrollRevealElement>
+                    <p>Bacon ipsum dolor amet exercitation beef commodo minim non sunt. Shankle in ad excepteur, spare ribs enim bacon sed elit est chislic pork loin. Rump hamburger incididunt short loin. Bresaola pork chop bacon shankle flank. Chicken jerky ribeye dolore landjaeger ullamco porchetta shank pariatur kielbasa sirloin sausage strip steak jowl boudin. Burgdoggen shank cupidatat ball tip filet mignon voluptate. Veniam eu capicola hamburger quis ham spare ribs nulla elit meatball.</p>
+                </ScrollRevealElement>
+                <ScrollRevealElement>
+                    <Link to='/under_construction'><button onClick={scrollToTop} className='snd-btn btn'>CONTACT US</button></Link>
+                </ScrollRevealElement>
             </div>
         </div>
     )
