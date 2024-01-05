@@ -33,14 +33,13 @@ function MessagesCRUD() {
   }, [message])
 
   const getMessages = () =>{
-      Axios.get('http://localhost:3001/api/read-messages').then((response) => {
-        setListOfMessages(() => {
-          return response.data.map((entry:any) => {
-            return {...entry,
-            isDeleting : false}
-          })          
-        });
+    Axios.get('http://localhost:3001/api/read-messages').then((response) => {
+      setListOfMessages(() => {
+        return response.data.map((entry:any) => {
+          return {...entry, isDeleting : false}
+        })          
       });
+    });
   };
 
   useEffect(() => {
@@ -77,11 +76,22 @@ function MessagesCRUD() {
     });
   }
 
-  const deleteMessage = (id:any) => {  
+  const deleteMessage = (id:any) => {
+    setListOfMessages((prevMessages) => {
+      return prevMessages.map((entry) => {
+        if (entry.id === id) {
+          return {
+            ...entry,
+            isDeleting: true
+          };
+        }
+        return entry;
+      });
+    });
     Axios.delete(`http://localhost:3001/api/delete-message/${id}`).then(() => {
-        setListOfMessages(listOfMessages.filter((val) => {
-          return val.id !== id;
-        }));
+      setListOfMessages(listOfMessages.filter((val) => {
+        return val.id !== id;
+      }));
     });
   };
 
@@ -122,7 +132,7 @@ function MessagesCRUD() {
                   <button onClick={() => editMessage(val.id)} className="edit-btn"><FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon></button>
                 </div>
                 <div className='col'>
-                  <button onClick={() => { val.isDeleting = true; deleteMessage(val.id); }} className="delete-btn"><FontAwesomeIcon icon={faTrash} /></button>
+                  <button onClick={() => deleteMessage(val.id)} className="delete-btn"><FontAwesomeIcon icon={faTrash} /></button>
                 </div>
               </div>
               <h1 className='background-text-2'>{i+1}</h1>

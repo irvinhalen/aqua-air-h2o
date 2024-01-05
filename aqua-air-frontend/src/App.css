@@ -651,7 +651,7 @@ button.trd-btn:active{
 /* Start of OHcrud */
 
 @keyframes rolldown {
-  0% { transform: translateY(-100px); }
+  0% { transform: translateY(-100px); opacity: 0; }
   100% { transform: none; }
 }
 
@@ -660,12 +660,12 @@ button.trd-btn:active{
 }
 
 @keyframes rollup {
-  0% { transform: translateY(100px); }
-  100% { transform: none; }
+  0% { transform: none; }
+  100% { transform: translateY(-100px); opacity: 0; display: none; }
 }
 
 .roll-up {
-  animation: rollup 250ms;
+  animation: rollup 250ms forwards;
 }
 
 .nav-header{
