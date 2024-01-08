@@ -1,0 +1,55 @@
+services:
+  
+  frontend:
+    container_name: REACT
+    build:
+      context: ./aqua-air-frontend
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./aqua-air-frontend:/app/frontend
+      - /app/frontend/node_modules
+    depends_on:
+      - backend
+    environment:
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - app
+
+  backend:
+    container_name: Laravel
+    build:
+      context: ./aqua-air-backend
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=aqua_air_h2o
+      - DB_USERNAME=${DB_USER_ID}
+      - DB_PASSWORD=${DB_USER_PASSWORD}
+    ports:
+      - 3001:3001
+    volumes:
+      - ./aqua-air-backend:/app/backend
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    command: php artisan migrate && php artisan db:seed --class=PostsSeeder
+    networks:
+      - app
+
+  db:
+    container_name: DB
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=aqua-air-h2o
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
