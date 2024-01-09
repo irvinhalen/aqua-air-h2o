@@ -33,11 +33,11 @@ services:
       - 3001:3001
     volumes:
       - ./aqua-air-backend:/app/backend
+      - ./logs:/app/backend/storage/logs/
     env_file:
       - ./.env
     depends_on:
       - db
-    command: php artisan migrate && php artisan db:seed --class=PostsSeeder
     networks:
       - app
 
@@ -45,8 +45,10 @@ services:
     container_name: DB
     image: mysql:8.0
     environment:
-      - MYSQL_DATABASE=aqua-air-h2o
+      - MYSQL_DATABASE=aqua_air_h2o
       - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - .dbdata:/var/lib/mysql/
     networks:
       - app
 
